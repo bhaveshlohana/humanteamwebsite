@@ -2,13 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home</title>
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <?php include('head.php'); ?>
 </head>
 
 <body>
@@ -41,8 +35,8 @@
                     <h5 class="header col s12 light">Together We Can</h5>
                 </div>
                 <div class="row center">
-                    <a href="events.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Upcoming Events</a>
-                    <a href="donate.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Donate</a>
+                    <a href="events.php" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Upcoming Events</a>
+                    <a href="donate.php" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Donate</a>
                 </div>
                 <br><br>
             </div>
@@ -89,12 +83,12 @@
                         <img class="activator" src="images/ngo5.jpg" height="200">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Kids Event<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">Donate</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Kids Event<i class="material-icons right"></i></span>
+                        <p><a href="donate.php">Donate ₹500</a></p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        <span class="card-title grey-text text-darken-4">Kids Event<i class="material-icons right">close</i></span>
+                        <p>Details about Kids Event</p>
                     </div>
                 </div>
             </div>
@@ -104,12 +98,12 @@
                         <img class="activator" src="images/ngo4.jpg" height="200">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Food Drive<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">Donate</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Food Drive<i class="material-icons right"></i></span>
+                        <p><a href="donate.php">Donate ₹1000</a></p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        <span class="card-title grey-text text-darken-4">Food Drive<i class="material-icons right">close</i></span>
+                        <p>Details about Food Drive.</p>
                     </div>
                 </div>
             </div>
@@ -119,12 +113,12 @@
                         <img class="activator" src="images/ngo3.jpg" height="200">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Donation Drive<i class="material-icons right">more_vert</i></span>
-                        <p><a href="#">Donate</a></p>
+                        <span class="card-title activator grey-text text-darken-4">Donation Drive<i class="material-icons right"></i></span>
+                        <p><a href="donate.php">Donate ₹1000</a></p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        <span class="card-title grey-text text-darken-4">Donation Drive<i class="material-icons right">close</i></span>
+                        <p>Detail about Donation Drive.</p>
                     </div>
                 </div>
             </div>
@@ -133,39 +127,7 @@
     
     </div>
     
-    <footer class="page-footer black">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Company Bio</h5>
-                    <p class="grey-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Settings</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-    </footer>
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
+    <?php include('footer.php'); ?>
 </body>
 
 </html>
