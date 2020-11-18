@@ -34,6 +34,29 @@ $paramList["IS_USER_VERIFIED"] = "YES"; //
 
 //Here checksum string will return by getChecksumFromArray() function.
 $checkSum = getChecksumFromArray($paramList,PAYTM_MERCHANT_KEY);
+include('db_connect.php');
+	session_start();
+	if($_SERVER["REQUEST_METHOD"]=='POST'){
+		$senderfname = $_POST['fname'];
+		$senderlname = $_POST['lname'];
+		$phone = $_POST['phone'];
+		$email = $_POST['email'];
+		$location = $_POST['location'];
+		$amount = $_POST['TXN_AMOUNT'];
+		$_SESSION["fname"] = $senderfname;
+		$_SESSION["lname"] = $senderlname;
+
+		$sql = "INSERT INTO donation (fname, lname, phone, email, location, donation_amount)
+				VALUES ('{$senderfname}', '{$senderlname}', {$phone}, '{$email}', '{$location}', {$amount})";
+
+		if (!mysqli_query($conn, $sql)) {
+		  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		}
+
+		mysqli_close($conn);
+
+
+	} 
 
 ?>
 <html>

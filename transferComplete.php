@@ -1,36 +1,17 @@
 <?php 
-	include('db_connect.php');
 	session_start();
-	if($_SERVER["REQUEST_METHOD"]=='POST'){
-		$senderfname = $_POST['fname'];
-		$senderlname = $_POST['lname'];
-		$phone = $_POST['phone'];
-		$email = $_POST['email'];
-		$location = $_POST['location'];
-		$amount = $_POST['amount'];
-		$_SESSION["fname"] = $senderfname;
-		$_SESSION["lname"] = $senderlname;
-		$_SESSION["amount"] = $amount;
-		$sql = "INSERT INTO donation (fname, lname, phone, email, location, donation_amount)
-				VALUES ('{$senderfname}', '{$senderlname}', {$phone}, '{$email}', '{$location}', {$amount})";
-		$transaction=mysqli_query($conn, $sql);
-		if (!$transaction) {
-		  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-		$_SESSION["transaction"]=$transaction;
-		mysqli_close($conn);
-
-
-	} 
-
+	include('db_connect.php');
+	$amount=$_SESSION["amount"];
+	$senderfname=$_SESSION["fname"];
+	$senderlname=$_SESSION["lname"];
+	$transaction=$_SESSION["transaction"];
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Transfer</title>
+    <title>Home</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -57,21 +38,22 @@
             <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" style="margin-bottom: 70vh;">
     	<div class="section">
-    		<form action="transferComplete.php" method="POST">
-    		<label for="cname">Name:</label>
-   				<input type="text" id="cname" name="cname" placeholder="John Doe Smith" required><br><br>
-   			<label for="cnumber">Phone Number:</label>
-				<input type="number" id="cnumber" name="cnumber" placeholder="0123 4567 8910 1112" required><br><br>
-			<label for="expiration">Expiration (mm/yy)</label>
-			<input type="month" id="expiration" name="month" placeholder="12/25"><br><br>
-			<label for ="code">Security Code</label>
-			<input type="number" max=3 id="code" name="code" placeholder="999"><br><br>
-			<button type="submit" class="waves-effect waves-light btn">Pay</button>
-		</form>
+    		<?php 
+    			if($transaction) {
+    				echo "<h3 class=\"green-text\"> Transaction Successful!</h3>";
+					echo "<h5>₹{$amount} has been deducted from your account i.e. {$senderfname} {$senderlname} and the fund is succesfully transfered to the Foundation.</h5>";
+    			}
+    			else {
+    				echo "<h3 class=\"red-text accent-3\"> Transaction Failed!</h3>";
+    			}
 
+    			echo "<p>Redirecting to home, please wait. <a href=\"home.php\">Click here</a> to redirect manually</p>";
+				header( "refresh:7;url=index.php" );
+    		?>
     	</div>
+
     </div>
     <footer class="page-footer black">
         <div class="container">
