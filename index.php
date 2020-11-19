@@ -3,6 +3,7 @@
 
 <head>
     <?php include('head.php'); ?>
+    <title>Home</title>
 </head>
 
 <body>
